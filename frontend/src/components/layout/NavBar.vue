@@ -32,7 +32,8 @@ let timeoutId: ReturnType<typeof setTimeout> | null = null
 watch(keyword, (newVal) => {
   if (timeoutId) clearTimeout(timeoutId)
   timeoutId = setTimeout(() => {
-    store.fetchMovies(newVal)
+    // 搜索时重置到第一页
+    store.fetchMovies(newVal, 0)
   }, 500)
 })
 </script>
